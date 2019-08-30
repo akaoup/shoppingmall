@@ -1,0 +1,22 @@
+{
+  "name": "shoppingmall",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/akaoup/shoppingmall.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/akaoup/shoppingmall/issues"
+  },
+  "homepage": "https://github.com/akaoup/shoppingmall#readme",
+  "devDependencies": {
+    "webpack": "^4.39.3"
+  }
+}
