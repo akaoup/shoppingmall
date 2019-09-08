@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "cross-env NODE_ENV=production webpack --config webpack.config.js",
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --config webpack.config.js"
   },
   "repository": {
     "type": "git",
@@ -18,5 +20,19 @@
   "homepage": "https://github.com/akaoup/shoppingmall#readme",
   "devDependencies": {
     "webpack": "^4.39.3"
+  },
+  "dependencies": {
+    "cross-env": "^5.2.1",
+    "css-loader": "^3.2.0",
+    "expose-loader": "^0.7.5",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
+    "file-loader": "^4.2.0",
+    "html-loader": "^0.5.5",
+    "html-webpack-plugin": "^3.2.0",
+    "jquery": "^3.4.1",
+    "mini-css-extract-plugin": "^0.8.0",
+    "style-loader": "^1.0.0",
+    "url-loader": "^2.1.0",
+    "webpack-dev-server": "^3.8.0"
   }
 }
