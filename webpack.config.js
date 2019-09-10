@@ -2,7 +2,7 @@
 * @Author: connie
 * @Date:   2019-09-06 15:40:31
 * @Last Modified by:   connie
-* @Last Modified time: 2019-09-08 22:33:35
+* @Last Modified time: 2019-09-09 18:23:57
 */
 
 var webpack = require('webpack')
@@ -34,13 +34,20 @@ var config = {
 	},
   entry: {
   	'common': ['./src/page/common/index.js'],
-  	'index': ['./src/page/index/index.js'],
-  	'login': ['./src/page/login/index.js']
+  	'index' : ['./src/page/index/index.js'],
+  	'login' : ['./src/page/login/index.js']
   },
   output: {
     path: path.join(__dirname, 'dist'),
     publicPath: '/dist',
     filename: 'js/[name].bundle.js'
+  },
+  resolve: {
+  	alias: {
+  		util: __dirname + '/src/util',
+  		page: __dirname + '/src/page',
+  		images: __dirname + './src/images'
+  	}
   },
   // 提取公共模块打包
   optimization: {
@@ -93,7 +100,6 @@ var config = {
   
   plugins: [
   	// css单独抽离打包
-  	//new ExtractTextPlugin('styles/[name].css'),
   	new miniCssExtractPlugin({
    	   filename: 'styles/[name].css',
    	 }),
@@ -117,7 +123,13 @@ var config = {
 			//错误显示到页面
 			overlay: {
 				error: true,
-			}		
-		}
+			},
+			proxy : {
+          '**/*.do' : {
+              target: 'http://test.happymmall.com',
+              changeOrigin : true
+          }
+        }
 	}
+}
 module.exports = config;
