@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-
-    <%= require('html-loader!./layout/header.html') %>
+		<head>
+			<%= require('html-loader!./layout/header.html') %>
+			<title></title>
+		</head>
     <style>
     </style>
     <body>
-    	<h1>第一阶段完成✅</h1>
+        <%= require('html-loader!./layout/nav-simple.html') %>
+        <%= require('html-loader!./layout/nav.html') %>
     </body>
-    <script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.4.0/jquery.min.js"></script>
     
+    <%= require('html-loader!./layout/footer.html') %>
 </html>

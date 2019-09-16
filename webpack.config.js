@@ -2,13 +2,12 @@
 * @Author: connie
 * @Date:   2019-09-06 15:40:31
 * @Last Modified by:   connie
-* @Last Modified time: 2019-09-09 18:23:57
+* @Last Modified time: 2019-09-16 17:52:56
 */
 
 var webpack = require('webpack')
 var path = require('path')
-
-var miniCssExtractPlugin = require('mini-css-extract-plugin');
+var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var HtmlWebpackPlugin = require('html-webpack-plugin'); 
 
 // 环境变量的配置 development / production
@@ -44,9 +43,10 @@ var config = {
   },
   resolve: {
   	alias: {
+      node_modules : __dirname + '/node_modules',
   		util: __dirname + '/src/util',
   		page: __dirname + '/src/page',
-  		images: __dirname + './src/images'
+  		images: __dirname + '/src/images'
   	}
   },
   // 提取公共模块打包
@@ -66,12 +66,12 @@ var config = {
   module: {
     rules: [
     	{
-				test: /\.css$/,
-				use: [
-		          miniCssExtractPlugin.loader,
-		          'css-loader',   
-		        ]
-			},
+        test: /\.css$/,
+        use: ExtractTextPlugin.extract({
+          fallback: "style-loader",
+          use: "css-loader"
+        })
+      },
 			{
 				test: /\.(gif|png|jpg|jpeg|woff|svg|eot|ttf)\??.*$/,
 				use: [
@@ -100,9 +100,7 @@ var config = {
   
   plugins: [
   	// css单独抽离打包
-  	new miniCssExtractPlugin({
-   	   filename: 'styles/[name].css',
-   	 }),
+   	new ExtractTextPlugin('styles/[name].css'),
 
    	// html模板的处理
    	new HtmlWebpackPlugin(getHtmlConfig('index')),

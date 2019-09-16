@@ -1,0 +1,18 @@
+/* 
+* @Author: connie
+* @Date:   2019-09-16 17:47:30
+* @Last Modified by:   connie
+* @Last Modified time: 2019-09-16 17:56:16
+*/
+.nav-simple{
+	height: 60px;
+	line-height: 60px;
+	border-bottom: 1px solid #ddd;
+	background: #fff;
+}
+
+.nav-simple .logo{
+	font-size: 26px;
+	font-weight: bold;
+	color:#c60023;
+}
