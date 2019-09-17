@@ -1,0 +1,29 @@
+/* 
+* @Author: connie
+* @Date:   2019-09-17 22:58:05
+* @Last Modified by:   connie
+* @Last Modified time: 2019-09-17 23:28:14
+*/
+
+.page-wrap{
+	background: #fff;
+	padding:30px 0;
+	min-height: 300px;
+	margin-top:20px;
+	text-align: center;
+}
+.result-wrap{
+	display: none;
+}
+.result-wrap .result-title{
+	color: #555;
+}
+
+.result-wrap .result-content{
+	margin-top:20px;
+}
+.result-wrap .result-content .link{
+	padding:5px 10px;
+	margin:0 5px;
+	border:1px solid #999;
+}

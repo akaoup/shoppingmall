@@ -2,13 +2,14 @@
 * @Author: connie
 * @Date:   2019-09-16 15:26:24
 * @Last Modified by:   connie
-* @Last Modified time: 2019-09-16 17:06:40
+* @Last Modified time: 2019-09-17 17:28:50
 */
 
 /* css reset */
 *{
 	margin: 0;
 	padding: 0;
+	border:none;
 }
 body{
 	background: #f6f6f6;

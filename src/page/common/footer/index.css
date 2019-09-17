@@ -1,0 +1,23 @@
+/* 
+* @Author: connie
+* @Date:   2019-09-17 15:42:34
+* @Last Modified by:   connie
+* @Last Modified time: 2019-09-17 15:53:03
+*/
+.footer{
+	padding-bottom: 10px;
+}
+.footer .links{
+	text-align: center;
+	color:#666;
+	line-height: 30px;
+}
+.footer .links .link{
+	padding: 0 10px;
+	color:#666;
+}
+.footer .copyright{
+	text-align: center;
+	color:#666;
+	line-height: 30px;
+}

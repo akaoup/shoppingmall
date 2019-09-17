@@ -2,7 +2,7 @@
 * @Author: connie
 * @Date:   2019-09-09 16:11:11
 * @Last Modified by:   connie
-* @Last Modified time: 2019-09-16 15:00:40
+* @Last Modified time: 2019-09-17 21:59:16
 */
 
 'use strict';
@@ -15,7 +15,7 @@ var _mm = {
 		var _this = this;
 		$.ajax({
 			type 			: param.method || 'get',
-			url  			: param.url 	 || '',
+			url  			: param.url 	 || '', 
 			dataType 	: param.type 	 || 'json',
 			data 			: param.data   || '',
 			success 	: function(res){

@@ -151,4 +151,7 @@ plugins: [
 ```
 
 + 补充：[webpack4升级说明](https://juejin.im/post/5b4ca3a5e51d4519596b7a06)
++ [webpack-dev-server原理分析与HMR实现](http://www.voidcn.com/article/p-sfoxvjwp-bbs.html)
 
+
+## 2.font-awesome

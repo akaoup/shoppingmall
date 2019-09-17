@@ -2,7 +2,7 @@
 * @Author: connie
 * @Date:   2019-09-06 15:40:31
 * @Last Modified by:   connie
-* @Last Modified time: 2019-09-16 17:52:56
+* @Last Modified time: 2019-09-17 23:02:41
 */
 
 var webpack = require('webpack')
@@ -15,10 +15,11 @@ const isDev = process.env.NODE_ENV === 'development'
 
 
 // 获取html-webpack-plugin参数的方法
-var getHtmlConfig = function(name){
+var getHtmlConfig = function(name, title){
 	return {
 		template: './src/view/'+ name+ '.html',
  		filename: 'view/'+ name+ '.html',
+    title: title,
  		inject: true,
  		hash: true,
  		chunks: ['common', name]
@@ -34,7 +35,8 @@ var config = {
   entry: {
   	'common': ['./src/page/common/index.js'],
   	'index' : ['./src/page/index/index.js'],
-  	'login' : ['./src/page/login/index.js']
+  	'login' : ['./src/page/login/index.js'],
+    'result': ['./src/page/result/index.js']
   },
   output: {
     path: path.join(__dirname, 'dist'),
@@ -46,7 +48,8 @@ var config = {
       node_modules : __dirname + '/node_modules',
   		util: __dirname + '/src/util',
   		page: __dirname + '/src/page',
-  		images: __dirname + '/src/images'
+  		images: __dirname + '/src/images',
+      service: __dirname + '/src/service'
   	}
   },
   // 提取公共模块打包
@@ -71,6 +74,12 @@ var config = {
           fallback: "style-loader",
           use: "css-loader"
         })
+      },
+      {
+        test: /\.string$/,
+        use: [{
+          loader: 'html-loader'
+        }]
       },
 			{
 				test: /\.(gif|png|jpg|jpeg|woff|svg|eot|ttf)\??.*$/,
@@ -103,8 +112,9 @@ var config = {
    	new ExtractTextPlugin('styles/[name].css'),
 
    	// html模板的处理
-   	new HtmlWebpackPlugin(getHtmlConfig('index')),
-   	new HtmlWebpackPlugin(getHtmlConfig('login'))
+   	new HtmlWebpackPlugin(getHtmlConfig('index', '首页')),
+   	new HtmlWebpackPlugin(getHtmlConfig('login', '用户登录')),
+    new HtmlWebpackPlugin(getHtmlConfig('result', '操作结果'))
 
  		// 旧版公共模块打包：
   	// new webpack.optimize.CommonsChunkPlugin({names: 'commoms', filename: 'js/base.js'})

@@ -2,16 +2,24 @@
 * @Author: connie
 * @Date:   2019-09-06 15:45:05
 * @Last Modified by:   connie
-* @Last Modified time: 2019-09-16 18:14:23
+* @Last Modified time: 2019-09-17 22:52:25
 */
 
 'use strict';
-
-require('page/common/nav-simple')
-require('page/common/nav')
-// require('../module.js')
 var $ = require('jquery');
-var _mm = require('util/mm.js')
+var _mm = require('util/mm.js');
+
+require('page/common/nav-simple');
+require('page/common/nav');
+require('page/common/header');
+var navSide = require('page/common/nav-side');
+navSide.init({
+	name: 'order-list'
+});
+
+// require('../module.js')
+
+
 // require('./index.css')
 // alert('123');
 // console.log(_mm.getUrlParam('test'))
