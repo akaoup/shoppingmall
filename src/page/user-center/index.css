@@ -1,0 +1,16 @@
+/* 
+* @Author: connie
+* @Date:   2019-09-24 15:20:02
+* @Last Modified by:   connie
+* @Last Modified time: 2019-09-24 23:23:49
+*/
+.form-line{
+	height: 30px;
+	line-height: 30px;
+	font-size: 14px;
+}
+.form-line .label{
+	width: 60px;
+	display: inline-block;
+	text-align: left;
+}

@@ -2,7 +2,7 @@
 * @Author: connie
 * @Date:   2019-09-17 16:04:51
 * @Last Modified by:   connie
-* @Last Modified time: 2019-09-17 17:29:09
+* @Last Modified time: 2019-09-24 16:09:48
 */
 .header .logo{
 	position:absolute;
@@ -12,6 +12,7 @@
 	font-size:36px;
 	color:#c60023;
 	font-weight: bold;
+	text-decoration: none;
 }
 
 .header .search-wrap{
@@ -32,6 +33,17 @@
 .header .search-wrap .search-btn{
 	position:absolute;
 	height:44px;
+}
+
+/* 面包屑导航 */
+.crumb{
+	height:50px;
+	line-height: 50px;
+	background: #eee;
+	margin-bottom: 10px;
+	color: #888;
+	font-size: 14px;
+	border-top:2px solid #c60023;
 }
 
 

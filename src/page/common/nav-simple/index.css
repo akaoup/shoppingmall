@@ -2,7 +2,7 @@
 * @Author: connie
 * @Date:   2019-09-16 17:47:30
 * @Last Modified by:   connie
-* @Last Modified time: 2019-09-16 17:56:16
+* @Last Modified time: 2019-09-24 16:10:49
 */
 .nav-simple{
 	height: 60px;
@@ -15,4 +15,5 @@
 	font-size: 26px;
 	font-weight: bold;
 	color:#c60023;
+	text-decoration: none;
 }
