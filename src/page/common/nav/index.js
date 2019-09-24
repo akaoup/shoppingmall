@@ -2,7 +2,7 @@
 * @Author: connie
 * @Date:   2019-09-16 18:13:13
 * @Last Modified by:   connie
-* @Last Modified time: 2019-09-17 15:34:15
+* @Last Modified time: 2019-09-24 11:15:38
 */
 
 'use strict';
@@ -25,7 +25,7 @@ var nav = {
 		})
 		// 注册点击事件
 		$('.js-register').click(function(){
-			window.location.href = './register.html'
+			window.location.href = './user-register.html'
 		})
 		// 退出点击事件
 		$('.js-logout').click(function(){
@@ -41,10 +41,12 @@ var nav = {
 	// 加载用户信息
 	loadUserInfo : function(){
 		_user.checkLogin(function(res){
-			$('.user.not-login').hide().sibling('.user.login').show()
+			 console.log(res);
+			$('.user.not-login').hide().siblings('.user.login').show()
 				.find('.username').text(res.username)
 		}, function(errMsg){
-			_mm.errorTips(errMsg)
+			//_mm.errorTips(errMsg)
+			console.log(errMsg)
 		})
 	},
 	// 加载购物车数量

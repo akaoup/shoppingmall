@@ -2,7 +2,7 @@
 * @Author: connie
 * @Date:   2019-09-16 15:26:24
 * @Last Modified by:   connie
-* @Last Modified time: 2019-09-17 17:28:50
+* @Last Modified time: 2019-09-23 15:48:22
 */
 
 /* css reset */
@@ -25,10 +25,15 @@ img{
 label{
 	cursor: pointer;
 }
+input{
+	outline:none;
+}
 input[type='checkbox']{
 	cursor: pointer;
 }
-
+button{
+	border:none;
+}
 /* 定宽布局 */
 .w{
 	width:1080px;
@@ -41,6 +46,9 @@ input[type='checkbox']{
 	width:1600px;
 }
 
+.page-wrap{
+	min-height: 650px;
+}
 /* 全局同用样式 */
 /* 隐藏类 */
 .hide{
@@ -68,7 +76,7 @@ input[type='checkbox']{
 	line-height: 40px;
 	vertical-align: middle;
 	background: #c60023;
-	font-size: 17px;
+	font-size: 18px;
 	font-weight: bold;
 	color:#fff;
 	outline:none;

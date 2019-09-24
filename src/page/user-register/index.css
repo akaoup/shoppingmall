@@ -1,0 +1,94 @@
+/* 
+* @Author: connie
+* @Date:   2019-09-23 11:50:10
+* @Last Modified by:   connie
+* @Last Modified time: 2019-09-23 11:50:31
+*/
+
+.page-wrap{
+	padding-top:80px;
+	background: #3f4463;
+}
+
+/* 表单部分 */
+.user-content{
+	width:350px;
+	margin:0 auto;
+	background: #fff;
+	position: relative;
+}
+.user-content .user-title{
+	text-align: center;
+	padding: 10px 0;
+	border-bottom: 1px solid #ddd;
+	font-size:18px;
+	font-weight:bold;
+	color:#666;
+}
+
+.user-content .user-box{
+	padding:20px;
+}
+
+.user-content .user-box .error-item{
+	position:relative;
+	padding:4px 0 4px 40px;
+	margin-bottom: 10px;
+	border:1px solid #c60023;
+	color:#c60023;
+	background: #e800123b;
+	display: none;
+}
+.user-content .user-box .error-icon{
+	position:absolute;
+	left:10px;
+	top:50%;
+	font-size:14px;
+	margin-top: -7px;
+}
+
+.user-content .user-item{
+	position:relative;
+	margin-bottom: 20px;
+	border: 1px solid #ccc;
+}
+
+.user-content .user-item .user-label{
+	position:absolute;
+	left:0;
+	top:0;
+	bottom:0;
+	width:40px;
+	line-height: 36px;
+	background: #f3f3f3;
+	font-size:18px;
+	color:#d3d3d3;
+	text-align: center;
+}
+
+.user-content .user-item .user-info{
+	padding:10px 0 10px 50px;
+	width:258px;
+	height:18px;
+	line-height: 18px;
+	font-size: 15px;
+}
+
+.user-content .btn-submit{
+	padding:2px 0;
+	width:100%;
+	text-align: center;
+}
+
+/* 底部链接跳转 */
+.user-content .link-item{
+	text-align: right; 
+	margin-top: 10px;
+}
+
+.user-content .link-item .link{
+	color:#333;
+
+}
+
+

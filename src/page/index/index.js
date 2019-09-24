@@ -2,17 +2,17 @@
 * @Author: connie
 * @Date:   2019-09-06 15:45:05
 * @Last Modified by:   connie
-* @Last Modified time: 2019-09-17 22:52:25
+* @Last Modified time: 2019-09-20 14:41:34
 */
 
 'use strict';
 var $ = require('jquery');
 var _mm = require('util/mm.js');
 
-require('page/common/nav-simple');
-require('page/common/nav');
-require('page/common/header');
-var navSide = require('page/common/nav-side');
+require('page/common/nav/index.js');
+require('page/common/header/index.js');
+
+var navSide = require('page/common/nav-side/index.js');
 navSide.init({
 	name: 'order-list'
 });

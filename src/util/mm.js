@@ -2,7 +2,7 @@
 * @Author: connie
 * @Date:   2019-09-09 16:11:11
 * @Last Modified by:   connie
-* @Last Modified time: 2019-09-17 21:59:16
+* @Last Modified time: 2019-09-20 19:13:56
 */
 
 'use strict';
@@ -10,6 +10,7 @@ var Hogan = require('hogan.js')
 var conf = {
 	serverHost: ''
 }
+
 var _mm = {
 	request : function(param){
 		var _this = this;
@@ -29,7 +30,7 @@ var _mm = {
 				}
 				// 请求数据错误
 				else if(1 === res.status){
-					typeof param.error === 'function' && param.error(res.data, res.msg)
+					typeof param.error === 'function' && param.error(res.msg)
 				}
 			},
 			error 		: function(err){
@@ -40,6 +41,7 @@ var _mm = {
 	// 获取服务器地址
 	getServerUrl : function(path){
 		return conf.serverHost + path;
+		console.log(conf.serverHost + path)
 	},
 	// 获取url参数
 	getUrlParam: function(name){
@@ -77,8 +79,7 @@ var _mm = {
 
 	// 统一登录处理
 	doLogin : function(){
-		window.location.href = './login.html?redirect=' + encodeURIComponent(window.location.href);
-
+		window.location.href = './user-login.html?redirect=' + encodeURIComponent(window.location.href);
 	},
 	goHome : function(){
 		window.location.href = './index.html';

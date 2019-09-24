@@ -2,7 +2,7 @@
 * @Author: connie
 * @Date:   2019-09-06 15:40:31
 * @Last Modified by:   connie
-* @Last Modified time: 2019-09-17 23:02:41
+* @Last Modified time: 2019-09-23 17:15:14
 */
 
 var webpack = require('webpack')
@@ -27,16 +27,18 @@ var getHtmlConfig = function(name, title){
 }
 
 var config = {
-	mode: 'production',
+	
 	// 关闭性能提示
 	performance: {
 	  hints: false
 	},
   entry: {
-  	'common': ['./src/page/common/index.js'],
-  	'index' : ['./src/page/index/index.js'],
-  	'login' : ['./src/page/login/index.js'],
-    'result': ['./src/page/result/index.js']
+  	'common'           : ['./src/page/common/index.js'],
+  	'index'            : ['./src/page/index/index.js'],
+  	'user-login'       : ['./src/page/user-login/index.js'],
+    'user-register'    : ['./src/page/user-register/index.js'],
+    'user-pass-reset'  : ['./src/page/user-pass-reset/index.js'],
+    'result'           : ['./src/page/result/index.js']
   },
   output: {
     path: path.join(__dirname, 'dist'),
@@ -113,8 +115,10 @@ var config = {
 
    	// html模板的处理
    	new HtmlWebpackPlugin(getHtmlConfig('index', '首页')),
-   	new HtmlWebpackPlugin(getHtmlConfig('login', '用户登录')),
-    new HtmlWebpackPlugin(getHtmlConfig('result', '操作结果'))
+    new HtmlWebpackPlugin(getHtmlConfig('result', '操作结果')),
+    new HtmlWebpackPlugin(getHtmlConfig('user-login', '用户登录')),
+    new HtmlWebpackPlugin(getHtmlConfig('user-register', '用户注册')),
+    new HtmlWebpackPlugin(getHtmlConfig('user-pass-reset', '找回密码'))
 
  		// 旧版公共模块打包：
   	// new webpack.optimize.CommonsChunkPlugin({names: 'commoms', filename: 'js/base.js'})
@@ -123,20 +127,16 @@ var config = {
 };
 
 	if(isDev){
-		config.entry.common.unshift('webpack-dev-server/client?http://0.0.0.0:8088/'),
+		//config.entry.common.unshift('webpack-dev-server/client?http://0.0.0.0:8088/'),
 		config.devServer = {
 			inline:true,
 			port: '8088',
 			host: '0.0.0.0',
-			//错误显示到页面
-			overlay: {
-				error: true,
-			},
 			proxy : {
           '**/*.do' : {
-              target: 'http://test.happymmall.com',
+              target: 'http://test.happymmall.com/',
               changeOrigin : true
-          }
+          }   
         }
 	}
 }
