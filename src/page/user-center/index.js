@@ -2,7 +2,7 @@
 * @Author: connie
 * @Date:   2019-09-24 15:19:53
 * @Last Modified by:   connie
-* @Last Modified time: 2019-09-24 23:14:11
+* @Last Modified time: 2019-09-25 16:01:31
 */
 
 'use strict';
@@ -32,7 +32,6 @@ var page = {
 	loadUserInfo : function(){
 		_user.getUserInfo(function(res){
 			// 渲染右侧内容
-			console.log(res)
 			var userHtml = _mm.renderHtml(temp, res);
 			$('.panel-body').html(userHtml);
 		}, function(errMsg){

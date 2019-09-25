@@ -2,7 +2,7 @@
 * @Author: connie
 * @Date:   2019-09-17 11:45:11
 * @Last Modified by:   connie
-* @Last Modified time: 2019-09-25 00:09:43
+* @Last Modified time: 2019-09-25 16:34:17
 */
 
 'use strict';
@@ -87,7 +87,7 @@ var _user = {
 		})
 	},
 
-	// 更新新密码
+	// 忘记-找回新密码
 	resetPassword : function(userInfo, resolve, reject){
 		_mm.request({
 			url : _mm.getServerUrl('/user/forget_reset_password.do'),
@@ -111,6 +111,17 @@ var _user = {
 	updateUserInfo : function(userInfo, resolve, reject){
 		_mm.request({
 			url : _mm.getServerUrl('/user/update_information.do'),
+			data: userInfo,
+			method : 'POST',
+			success : resolve,
+			error : reject
+		})
+	},
+
+	// 更新密码
+	updatePassword : function(userInfo, resolve, reject){
+		_mm.request({
+			url : _mm.getServerUrl('/user/reset_password.do'),
 			data: userInfo,
 			method : 'POST',
 			success : resolve,

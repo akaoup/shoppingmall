@@ -2,7 +2,7 @@
 * @Author: connie
 * @Date:   2019-09-17 22:14:40
 * @Last Modified by:   connie
-* @Last Modified time: 2019-09-17 22:48:05
+* @Last Modified time: 2019-09-25 16:08:25
 */
 
 'use strict';
@@ -24,7 +24,7 @@ var navSide = {
 		}, {
 			name : 'password-update',
 			desc : '修改密码',
-			href : './password-update.html'
+			href : './user-pass-update.html'
 		}, {
 			name : 'about',
 			desc : '关于MMall',

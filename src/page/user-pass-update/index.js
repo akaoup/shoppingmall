@@ -1,8 +1,8 @@
 /* 
 * @Author: connie
-* @Date:   2019-09-24 15:19:53
+* @Date:   2019-09-25 16:03:48
 * @Last Modified by:   connie
-* @Last Modified time: 2019-09-25 00:30:19
+* @Last Modified time: 2019-09-25 16:56:54
 */
 
 'use strict';
@@ -12,7 +12,7 @@ require('page/common/header/index.js');
 var _mm  		= require('util/mm.js');
 var _user		= require('service/user-service.js');
 var navSide = require('page/common/nav-side/index.js');
-var temp		= require('./index.string')
+var temp		= require('./index.string');
 
 // 页面逻辑部分
 var page = {
@@ -23,7 +23,7 @@ var page = {
 	onLoad : function(){
 		// 初始化左侧边菜单
 		navSide.init({
-			name: 'user-center'
+			name: 'password-update'
 		});
 		// 加载用户信息
 		this.loadUserInfo();
@@ -40,62 +40,53 @@ var page = {
 	},
 
 	bindEvent : function(){
-		var _this = this;
+		var _this =this;
 		$(document).on('click', '.btn-submit', function(){
 			var userInfo = {
-				phone 		: $.trim($('#phone').val()),
-				email 		: $.trim($('#email').val()),
-				question 	: $.trim($('#question').val()),
-				answer 		: $.trim($('#answer').val())
-			},
-			vaildateResult = _this.validateForm(userInfo);
+				passwordOld : $.trim($('#oldpass').val()),
+				passwordNew : $.trim($('#newpass').val()),
+				passwordConfirm : $.trim($('#newpass-confirm').val())
+			}
+			var vaildateResult = _this.validateForm(userInfo);
+
 			if(vaildateResult.status){
-				_user.updateUserInfo(userInfo, function(res, msg){
-					_mm.successTips(msg);
-					window.location.href = './user-center.html';
+				_user.updatePassword(userInfo, function(res){
+					_mm.errorTips('密码重置成功')
+					// 222333 怕忘记记一下我的新密码
 				}, function(errMsg){
-				});
+					_mm.errorTips(errMsg);
+				})
 			}else{
 				_mm.errorTips(vaildateResult.msg);
 			}
-		})
+			
+		});
+
 	},
 
-	// 验证字段信息
 	validateForm : function(formData){
 		var result = {
 			status : false,
 			msg : ''
 		};
-				
-		// 验证手机号
-		if(!_mm.validate(formData.phone, 'phone')){
-			result.msg = '手机号码格式不正确';
-			return result;
-		}
-
-		if(!_mm.validate(formData.email, 'email')){
-			result.msg = '邮箱账户格式不正确';
-			return result;
-		}
-
-		if(!_mm.validate(formData.question, 'require')){
-			result.msg = '密保问题不能为空';
-			return result;
+		if(!_mm.validate(formData.passwordOld, 'require')){
+				result.msg = '原密码不能为空';
+				return result;
 		};
-
-		if(!_mm.validate(formData.answer, 'require')){
-			result.msg = '密保问题答案不能为空';
+		if(!formData.passwordNew || formData.passwordNew.length < 6){
+			result.msg = '新密码长度不能少于6位';
 			return result;
-		};
-
+		}; 
+		if(formData.passwordNew !== formData.passwordConfirm){
+				result.msg = '两次输入的新密码不一致';
+				return result;
+			};
+		
 		// 通过验证 status为true
 		result.status = true;
 		result.msg = '验证通过';
 		return result;
 	}
-
-
 
 };
 
